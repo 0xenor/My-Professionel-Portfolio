@@ -43,7 +43,7 @@ export const translations: Record<Lang, TranslationKeys> = {
     hero: {
       badge: "MERN Stack Developer",
       line1: "Building", line2: "modern", line3: "digital", line4: "experiences",
-      sub: "MERN Stack Developer & Photographer crafting premium web interfaces with clean code and modern design.",
+      sub: "MERN Stack Developer & Photographer specialized in Nature and Car photography, crafting premium web interfaces with clean code and modern design, alongside Social Media Management and digital content strategy.",
       btn1: "View Projects", btn2: "My Journey",
     },
     about: {
@@ -65,7 +65,7 @@ export const translations: Record<Lang, TranslationKeys> = {
       label: "Experience", title: "Journey",
       card1: { title: "Bac Science Economique & Learning", sub: "Academic Foundation", text: "Started discovering programming and technology while studying Economics. Quickly developed strong curiosity for coding and digital creation, laying the foundation for a technical path." },
       card2: { title: "Bachelor Applied Economics", sub: "Université Ibn Zohr · Freelance", text: "Currently studying Applied Economics at Université Ibn Zohr while expanding practical experience through freelance management and landing page development. Focused on completing my academic path and developing strong digital and creative skills alongside university studies." },
-      card3: { title: "Mechanic Garage Internship", sub: "Automotive & Engineering", text: "Passionate about cars, engines and mechanics, gaining hands on experience and learning directly from the automotive world bridging the gap between digital and mechanical engineering." },
+      card3: { title: "Mechanic Garage Internship", sub: "Automotive & Mechanic", text: "Passionate about cars, engines and mechanics, gaining hands on experience and learning directly from the automotive world bridging the gap between digital and mechanical engineering." },
     },
     projects: {
       label: "Work", title1: "Real projects,", title2: "built with modern", title3: "MERN tooling.",
@@ -105,7 +105,7 @@ export const translations: Record<Lang, TranslationKeys> = {
       label: "Expérience", title: "Parcours",
       card1: { title: "Bac Science Économique", sub: "Formation Académique", text: "Début de la découverte de la programmation et de la technologie durant les études d'économie. Développement rapide d'une forte curiosité pour le code et la création digitale." },
       card2: { title: "Licence Économie Appliquée", sub: "Université Ibn Zohr · Freelance", text: "Actuellement en Licence d'Économie Appliquée à l'Université Ibn Zohr, tout en développant une expérience pratique via la gestion freelance et le développement de landing pages. Objectif : valider le diplôme en développant des compétences digitales et créatives en parallèle." },
-      card3: { title: "Stage Garage Mécanique", sub: "Automobile & Ingénierie", text: "Passionné par les voitures, les moteurs et la mécanique, acquérant une expérience pratique directement dans le monde automobile — faisant le lien entre le digital et l'ingénierie mécanique." },
+      card3: { title: "Stage Garage Mécanique", sub: "Automobile ", text: "Passionné par les voitures, les moteurs et la mécanique, acquérant une expérience pratique directement dans le monde automobile — faisant le lien entre le digital et l'ingénierie mécanique." },
     },
     projects: {
       label: "Travaux", title1: "Projets réels,", title2: "construits avec des outils", title3: "MERN modernes.",
