@@ -18,7 +18,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on any nav-link click
   const handleNavClick = () => setMenuOpen(false);
 
   const navLinks = [
@@ -31,7 +30,6 @@ export default function Navbar() {
 
   const current = languages.find(l => l.code === lang)!;
 
-  /* ── shared pill button style ── */
   const pillBtn: React.CSSProperties = {
     background: "var(--card)",
     border: "1px solid var(--border)",
@@ -50,9 +48,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ════════════════════════════════════════════
-          DESKTOP + MOBILE NAV PILL
-      ════════════════════════════════════════════ */}
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -69,7 +64,6 @@ export default function Navbar() {
           boxShadow: scrolled ? "0 8px 40px rgba(0,0,0,0.3)" : "none",
         }}
       >
-        {/* ── Desktop nav links (hidden on mobile) ── */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map(link => (
             <a
@@ -88,12 +82,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop divider */}
         <div style={{ width: 1, height: 20, background: "var(--border)", margin: "0 4px" }} className="hidden md:block" />
 
-        {/* ── Controls: lang + theme (always visible) ── */}
         <div className="nav-controls flex items-center gap-2">
-          {/* Language switcher */}
           <div className="relative" id="langSwitcher">
             <button onClick={() => setLangOpen(o => !o)} style={pillBtn}>
               <span>{current.flag}</span>
@@ -140,13 +131,10 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* Theme toggle */}
           <button onClick={toggle} style={pillBtn}>
             <span>{theme === "dark" ? "☀️" : "🌙"}</span>
             <span>{theme === "dark" ? "Light" : "Dark"}</span>
           </button>
-
-          {/* ── Hamburger (mobile only) ── */}
           <button
             className="md:hidden"
             onClick={() => setMenuOpen(o => !o)}
@@ -178,9 +166,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* ════════════════════════════════════════════
-          MOBILE FULL-SCREEN MENU DRAWER
-      ════════════════════════════════════════════ */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -202,7 +187,6 @@ export default function Navbar() {
               boxShadow: "0 20px 60px rgba(0,0,0,0.35)",
             }}
           >
-            {/* Nav links */}
             <div style={{ padding: "8px" }}>
               {navLinks.map((link, i) => (
                 <motion.a
@@ -231,10 +215,8 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Divider */}
             <div style={{ height: "1px", background: "var(--border)", margin: "0 16px" }} />
 
-            {/* Bottom: close hint */}
             <div style={{ padding: "12px 20px", textAlign: "center" }}>
               <span style={{ fontSize: "12px", color: "var(--text3)", fontFamily: "var(--font-dm)" }}>
                 Tap a section to navigate
@@ -243,8 +225,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Backdrop to close menu on outside tap */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

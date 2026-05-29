@@ -54,9 +54,7 @@ html, body { overflow-x: hidden; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
 
-/* ================================================================
-   SECTION WRAPPERS — desktop default, mobile override
-   ================================================================ */
+
 .section-wrap {
   padding-left: 40px;
   padding-right: 40px;
@@ -74,33 +72,22 @@ html, body { overflow-x: hidden; }
   }
 }
 
-/* ================================================================
-   NAVBAR — mobile only
-   ================================================================ */
-
-/* Pill shrinks and centers on mobile */
 @media (max-width: 767px) {
   .nav-pill {
     width: calc(100vw - 32px) !important;
     max-width: 460px !important;
     padding: 9px 14px !important;
     top: 10px !important;
-    /* override justify so controls row centers */
     justify-content: center !important;
   }
 
-  /* Controls row (lang + theme + hamburger) — centered */
   .nav-controls {
     justify-content: center !important;
     flex: 1;
   }
 }
 
-/* ================================================================
-   HERO — mobile only
-   ================================================================ */
 
-/* Stack to single column */
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr !important;
@@ -110,7 +97,6 @@ html, body { overflow-x: hidden; }
   }
 }
 
-/* Hero title responsive scaling */
 @media (max-width: 600px) {
   .hero-grid h1 {
     font-size: clamp(36px, 10.5vw, 58px) !important;
@@ -129,18 +115,12 @@ html, body { overflow-x: hidden; }
   }
 }
 
-/* ================================================================
-   CODE CARD — desktop base (always), mobile overrides inside @media
-   ================================================================ */
-
-/* Always: card fills its grid cell, never overflows */
 .code-card-outer {
   width: 100%;
   max-width: 100%;
   min-width: 0;
 }
 
-/* Code area: scrollable inside, never pushes card wider */
 .code-body {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -151,13 +131,11 @@ html, body { overflow-x: hidden; }
 .code-body::-webkit-scrollbar-track   { background: transparent; }
 .code-body::-webkit-scrollbar-thumb   { background: rgba(124,58,237,0.45); border-radius: 10px; }
 
-/* Mobile: card centered, better proportions, breathing room */
 @media (max-width: 900px) {
   .code-card-outer {
     margin-left: auto !important;
     margin-right: auto !important;
   }
-  /* motion.div wrapper that holds the card */
   .hero-code-wrapper {
     width: 100% !important;
     min-width: 0 !important;

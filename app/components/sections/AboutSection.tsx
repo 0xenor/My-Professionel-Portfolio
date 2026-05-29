@@ -54,7 +54,6 @@ export default function AboutSection() {
           </div>
         </FadeUp>
 
-        {/* Large description card on top */}
         <FadeUp delay={0.05}>
           <div
             className="about-main-card"
@@ -124,7 +123,6 @@ export default function AboutSection() {
           </div>
         </FadeUp>
 
-        {/* Three equal cards below */}
         <FadeUp delay={0.1}>
           <div className="about-info-row" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <InfoCard

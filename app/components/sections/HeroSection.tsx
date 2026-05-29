@@ -49,7 +49,6 @@ export default function HeroSection() {
             paddingBottom: "80px",
           }}
         >
-          {/* LEFT */}
           <div>
             <motion.div
               custom={0}
@@ -72,7 +71,7 @@ export default function HeroSection() {
                   marginBottom: "36px",
                 }}
               >
-                ⚡ {t.hero.badge}
+                 {t.hero.badge}
               </div>
             </motion.div>
 
@@ -118,8 +117,6 @@ export default function HeroSection() {
             </motion.p>
           </div>
 
-
-          {/* RIGHT */}
           <motion.div
             className="hero-code-wrapper"
             initial={{ opacity: 0, x: 44 }}
@@ -145,7 +142,6 @@ export default function HeroSection() {
                   "0 0 0 1px rgba(124,58,237,0.08),0 0 80px rgba(124,58,237,0.22),0 32px 80px rgba(0,0,0,0.55)",
               }}
             >
-              {/* TITLE BAR */}
               <div
                 style={{
                   padding: "20px 28px",
@@ -200,7 +196,6 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* CODE */}
               <div
                 className="code-body"
                 style={{
@@ -212,7 +207,7 @@ export default function HeroSection() {
                 }}
               >
                 <div style={{ color: "rgba(255,255,255,.25)" }}>
-                  // MERN Stack Developer
+    // MERN Stack Developer, Photographer, S.M Management //
                 </div>
 
                 <div>
@@ -227,7 +222,7 @@ export default function HeroSection() {
                   <span style={{ color: "#fbbf24" }}>
                     {" "}
                     'Ilyass'
-                  </span>
+                  </span>,
                 </div>
 
                 <div>
@@ -235,7 +230,7 @@ export default function HeroSection() {
                   <span style={{ color: "#fbbf24" }}>
                     {" "}
                     'MERN Stack Developer'
-                  </span>
+                  </span>,
                 </div>
 
                 <div>
@@ -249,22 +244,40 @@ export default function HeroSection() {
                   </span>
                   ,
                   <span style={{ color: "#fbbf24" }}>
+                    'Next JS'
+                  </span>
+                  ,
+                  <span style={{ color: "#fbbf24" }}>
                     'Tailwind CSS'
                   </span>
                   ]
+                  ,
                 </div>
 
                 <div>
                   style:
                   <span style={{ color: "#fbbf24" }}>
                     {' '}
-                    'minimal premium'
+                    'minimal premium, creative'
                   </span>
+                  ,
                 </div>
 
+                <div>
+                  mode: [
+                  <span style={{ color: "#fbbf24" }}>
+                    'Dark'
+                  </span>
+                  ,
+                  <span style={{ color: "#fbbf24" }}>
+                    'Light'
+                  </span>
+                  ]
+                </div>
 
                 <div>{"};"}</div>
               </div>
+
             </div>
           </motion.div>
           <motion.div

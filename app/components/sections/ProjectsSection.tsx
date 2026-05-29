@@ -72,7 +72,6 @@ export default function ProjectsSection() {
       <div className="section-wrap" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }} className="projects-grid">
 
-          {/* Left: intro */}
           <FadeUp>
             <div>
               <div style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text3)", marginBottom: "24px", fontFamily: "var(--font-dm)", fontWeight: 500 }}>
@@ -106,7 +105,7 @@ export default function ProjectsSection() {
                 ))}
               </div>
               <a
-                href="#"
+                href="https://github.com/0xenor"
                 style={{
                   background: "var(--text)",
                   color: "var(--bg)",
