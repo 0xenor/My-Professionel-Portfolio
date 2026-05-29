@@ -1,6 +1,5 @@
 "use client";
 import FadeUp from "@/app/components/FadeUp";
-import { MessageCircle } from "lucide-react";
 import { useLang } from "@/lib/LangContext";
 
 export default function ContactSection() {
@@ -85,7 +84,7 @@ export default function ContactSection() {
 
               <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
                 <a
-                  href="mailto:bot4toxd@gmail.com"
+                  href="#"
                   style={btnStyle(false, true)}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent2)"; (e.currentTarget as HTMLElement).style.transform = "scale(1.03)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent)"; (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
@@ -93,7 +92,7 @@ export default function ContactSection() {
                   <span>📧</span> {t.contact.email}
                 </a>
                 <a
-                  href="https://github.com/0xenor"
+                  href="#"
                   style={btnStyle(false)}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--card)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--text3)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "var(--border2)"; }}
@@ -101,13 +100,12 @@ export default function ContactSection() {
                   <span>⌨️</span> GitHub
                 </a>
                 <a
-                  href="https://discord.com/users/1064281848005537872"
+                  href="#"
                   style={btnStyle(false)}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--card)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--text3)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "var(--border2)"; }}
                 >
-                  <MessageCircle size={18} />
-                  Discord
+                  <span>💬</span> Discord
                 </a>
               </div>
             </div>

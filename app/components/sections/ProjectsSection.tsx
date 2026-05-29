@@ -106,7 +106,7 @@ export default function ProjectsSection() {
                 ))}
               </div>
               <a
-                href="https://github.com/0xenor"
+                href="#"
                 style={{
                   background: "var(--text)",
                   color: "var(--bg)",
