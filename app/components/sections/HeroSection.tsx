@@ -15,7 +15,7 @@ export default function HeroSection() {
 
   return (
     <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center", overflowX: "hidden" }}>
-      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px", width: "100%" }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 48px", width: "100%" }}>
         <div
           className="hero-grid"
           style={{
@@ -108,34 +108,34 @@ export default function HeroSection() {
 
               {/* Title bar */}
               <div className="code-titlebar" style={{
-                padding: "16px 20px",
+                padding: "20px 28px 16px",
                 borderBottom: "1px solid rgba(255,255,255,0.07)",
-                display: "flex", alignItems: "center", gap: "10px",
+                display: "flex", alignItems: "center", gap: "12px",
                 background: "rgba(255,255,255,0.02)",
                 flexWrap: "nowrap" as const,
                 minWidth: 0,
               }}>
                 {/* Traffic lights */}
-                <div style={{ display: "flex", gap: "7px", flexShrink: 0 }}>
-                  <div style={{ width: 13, height: 13, borderRadius: "50%", background: "#ff5f57", boxShadow: "0 0 6px rgba(255,95,87,0.4)" }} />
-                  <div style={{ width: 13, height: 13, borderRadius: "50%", background: "#febc2e", boxShadow: "0 0 6px rgba(254,188,46,0.4)" }} />
-                  <div style={{ width: 13, height: 13, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 6px rgba(40,200,64,0.4)" }} />
+                <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#ff5f57", boxShadow: "0 0 6px rgba(255,95,87,0.4)" }} />
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#febc2e", boxShadow: "0 0 6px rgba(254,188,46,0.4)" }} />
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 6px rgba(40,200,64,0.4)" }} />
                 </div>
                 {/* File tab */}
                 <div style={{
-                  marginLeft: "10px", background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.08)", borderRadius: "7px",
-                  padding: "4px 12px", display: "flex", alignItems: "center", gap: "6px", flexShrink: 0,
+                  marginLeft: "12px", background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px",
+                  padding: "5px 14px", display: "flex", alignItems: "center", gap: "7px", flexShrink: 0,
                 }}>
-                  <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#a78bfa" }} />
-                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-dm)", fontWeight: 400 }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#a78bfa" }} />
+                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-dm)", fontWeight: 400, letterSpacing: "0.02em" }}>
                     developer.ts
                   </span>
                 </div>
                 {/* Status — hidden on very small screens via CSS */}
-                <div className="code-status" style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
-                  <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 8px rgba(40,200,64,0.7)" }} />
-                  <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.28)", fontFamily: "var(--font-dm)", letterSpacing: "0.08em", textTransform: "uppercase" as const, whiteSpace: "nowrap" as const }}>
+                <div className="code-status" style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "7px", flexShrink: 0 }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 10px rgba(40,200,64,0.7)" }} />
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-dm)", letterSpacing: "0.08em", textTransform: "uppercase" as const, whiteSpace: "nowrap" as const }}>
                     CURRENT FOCUS
                   </span>
                 </div>
@@ -145,15 +145,15 @@ export default function HeroSection() {
               <div style={{ display: "flex", width: "100%", minWidth: 0 }}>
                 {/* Line numbers — hidden on mobile */}
                 <div className="code-linenos" style={{
-                  padding: "28px 0 28px 18px",
-                  color: "rgba(255,255,255,0.14)",
+                  padding: "36px 0 36px 24px",
+                  color: "rgba(255,255,255,0.15)",
                   fontFamily: "'Courier New', monospace",
-                  fontSize: "13px",
-                  lineHeight: "2.05",
+                  fontSize: "14px",
+                  lineHeight: "2.1",
                   textAlign: "right" as const,
                   userSelect: "none" as const,
                   flexShrink: 0,
-                  minWidth: "38px",
+                  minWidth: "44px",
                 }}>
                   {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map(n => (
                     <div key={n}>{n}</div>
@@ -161,13 +161,14 @@ export default function HeroSection() {
                 </div>
 
                 {/* Divider */}
-                <div className="code-linenos" style={{ width: "1px", background: "rgba(255,255,255,0.06)", margin: "20px 0", flexShrink: 0 }} />
+                <div className="code-linenos" style={{ width: "1px", background: "rgba(255,255,255,0.06)", margin: "24px 0", flexShrink: 0 }} />
 
                 {/* Scrollable code area */}
                 <div style={{
-                  padding: "28px 24px 28px 20px",
+                  padding: "36px 36px 36px 28px",
                   fontFamily: "'Courier New', 'Fira Code', monospace",
-                  lineHeight: "2.05",
+                  fontSize: "14.5px",
+                  lineHeight: "2.1",
                   letterSpacing: "0.01em",
                   flex: 1,
                   minWidth: 0,
@@ -229,8 +230,8 @@ export default function HeroSection() {
               {/* Bottom status bar */}
               <div style={{
                 borderTop: "1px solid rgba(255,255,255,0.06)",
-                padding: "11px 20px",
-                display: "flex", alignItems: "center", gap: "16px",
+                padding: "12px 28px",
+                display: "flex", alignItems: "center", gap: "20px",
                 background: "rgba(255,255,255,0.02)",
               }}>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-dm)", letterSpacing: "0.05em" }}>TypeScript</span>
@@ -243,7 +244,9 @@ export default function HeroSection() {
       </div>
 
       <style>{`
-        /* Mobile: single column, card below text */
+        /* ── MOBILE ONLY — desktop untouched ── */
+
+        /* Stack to single column below 900px */
         @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
@@ -252,29 +255,27 @@ export default function HeroSection() {
           }
         }
 
-        /* Tighten outer container padding on small screens */
+        /* Tighten page-level padding on small phones */
         @media (max-width: 600px) {
           #home > div {
-            padding-left: 16px !important;
-            padding-right: 16px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
           }
         }
 
-        /* Reduce code font size on mobile */
+        /* Reduce code font & padding only on small phones */
         @media (max-width: 600px) {
           .code-body {
-            font-size: 12px !important;
-            padding: 20px 16px 20px 14px !important;
+            font-size: 12.5px !important;
+            padding: 24px 20px 24px 16px !important;
+            line-height: 2.0 !important;
           }
           .code-titlebar {
-            padding: 13px 16px !important;
-          }
-          .code-card-outer {
-            border-radius: 18px !important;
+            padding: 14px 18px 12px !important;
           }
         }
 
-        /* Hide line numbers on small screens to save horizontal space */
+        /* Hide line numbers + status label on very small screens */
         @media (max-width: 480px) {
           .code-linenos {
             display: none !important;
@@ -284,15 +285,11 @@ export default function HeroSection() {
           }
         }
 
-        /* Scrollbar styling inside code block */
-        .code-body::-webkit-scrollbar {
-          height: 3px;
-        }
-        .code-body::-webkit-scrollbar-track {
-          background: transparent;
-        }
+        /* Thin purple scrollbar inside code area */
+        .code-body::-webkit-scrollbar { height: 3px; }
+        .code-body::-webkit-scrollbar-track { background: transparent; }
         .code-body::-webkit-scrollbar-thumb {
-          background: rgba(124,58,237,0.4);
+          background: rgba(124,58,237,0.45);
           border-radius: 10px;
         }
       `}</style>
