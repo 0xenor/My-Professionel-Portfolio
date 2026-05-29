@@ -9,23 +9,23 @@ export default function HeroSection() {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({
       opacity: 1, y: 0,
-      transition: { duration: 0.7, delay: i * 0.1, ease: "easeOut" as const },
+      transition: { duration: 0.75, delay: i * 0.1, ease: "easeOut" as const },
     }),
   };
 
   return (
     <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px", width: "100%" }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 48px", width: "100%" }}>
         <div
+          className="hero-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "80px",
+            gap: "72px",
             alignItems: "center",
-            paddingTop: "110px",
-            paddingBottom: "60px",
+            paddingTop: "120px",
+            paddingBottom: "80px",
           }}
-          className="hero-grid"
         >
           {/* LEFT: Hero text */}
           <div>
@@ -33,9 +33,9 @@ export default function HeroSection() {
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 border: "1px solid var(--border2)", borderRadius: "50px",
-                padding: "8px 18px", fontSize: "11px", letterSpacing: "0.12em",
+                padding: "8px 20px", fontSize: "11px", letterSpacing: "0.14em",
                 textTransform: "uppercase" as const, color: "var(--text2)",
-                marginBottom: "32px", fontFamily: "var(--font-dm)", fontWeight: 500,
+                marginBottom: "36px", fontFamily: "var(--font-dm)", fontWeight: 500,
               }}>
                 <span>⚡</span><span>{t.hero.badge}</span>
               </div>
@@ -44,8 +44,8 @@ export default function HeroSection() {
             <motion.h1
               custom={1} variants={fadeItem} initial="hidden" animate="visible"
               style={{
-                fontFamily: "var(--font-syne)", fontSize: "clamp(52px,7vw,82px)",
-                fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.03em", marginBottom: "28px",
+                fontFamily: "var(--font-syne)", fontSize: "clamp(54px,7.5vw,86px)",
+                fontWeight: 800, lineHeight: 0.98, letterSpacing: "-0.04em", marginBottom: "28px",
               }}
             >
               {t.hero.line1}<br />{t.hero.line2}<br />{t.hero.line3}<br />
@@ -54,82 +54,187 @@ export default function HeroSection() {
 
             <motion.p
               custom={2} variants={fadeItem} initial="hidden" animate="visible"
-              style={{ fontSize: "17px", color: "var(--text2)", lineHeight: 1.75, maxWidth: "420px", marginBottom: "40px", fontFamily: "var(--font-dm)", fontWeight: 300 }}
+              style={{ fontSize: "17px", color: "var(--text2)", lineHeight: 1.8, maxWidth: "400px", marginBottom: "44px", fontFamily: "var(--font-dm)", fontWeight: 300 }}
             >
               {t.hero.sub}
             </motion.p>
 
-            <motion.div custom={3} variants={fadeItem} initial="hidden" animate="visible" style={{ display: "flex", gap: "12px", flexWrap: "wrap" as const }}>
+            <motion.div
+              custom={3} variants={fadeItem} initial="hidden" animate="visible"
+              style={{ display: "flex", gap: "12px", flexWrap: "wrap" as const }}
+            >
               <a href="#projects" style={{
-                background: "var(--text)", color: "var(--bg)", border: "none",
-                borderRadius: "50px", padding: "14px 28px", fontSize: "15px", fontWeight: 600,
+                background: "var(--text)", color: "var(--bg)", borderRadius: "50px",
+                padding: "15px 30px", fontSize: "15px", fontWeight: 600,
                 cursor: "pointer", textDecoration: "none", fontFamily: "var(--font-dm)", display: "inline-flex",
-              }}>{t.hero.btn1}</a>
+                transition: "opacity 0.2s, transform 0.2s",
+              }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.86"; (e.currentTarget as HTMLElement).style.transform = "scale(1.03)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1"; (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+              >{t.hero.btn1}</a>
               <a href="#journey" style={{
                 background: "transparent", color: "var(--text)", border: "1px solid var(--border2)",
-                borderRadius: "50px", padding: "14px 28px", fontSize: "15px", fontWeight: 500,
+                borderRadius: "50px", padding: "15px 30px", fontSize: "15px", fontWeight: 500,
                 cursor: "pointer", textDecoration: "none", fontFamily: "var(--font-dm)", display: "inline-flex",
-              }}>{t.hero.btn2}</a>
+                transition: "background 0.2s, border-color 0.2s",
+              }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--card)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+              >{t.hero.btn2}</a>
             </motion.div>
           </div>
 
-          {/* RIGHT: Code card + photo */}
+          {/* RIGHT: Premium Code Card only */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            initial={{ opacity: 0, x: 44 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" }}
           >
-            {/* Premium Code Card */}
+            {/* ── PREMIUM CODE CARD ── */}
             <div style={{
-              background: "var(--bg3)", border: "1px solid var(--border2)", borderRadius: "20px",
-              overflow: "hidden", boxShadow: "0 0 60px var(--glow), 0 20px 60px rgba(0,0,0,0.4)",
+              background: "#0f0f0f",
+              border: "1px solid rgba(255,255,255,0.11)",
+              borderRadius: "24px",
+              overflow: "hidden",
+              boxShadow: "0 0 0 1px rgba(124,58,237,0.08), 0 0 80px rgba(124,58,237,0.22), 0 32px 80px rgba(0,0,0,0.55)",
               position: "relative",
             }}>
-              {/* Top glow line */}
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.6), transparent)" }} />
+              {/* Top purple accent line */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0, height: "2px",
+                background: "linear-gradient(90deg, transparent 0%, rgba(124,58,237,0.8) 40%, rgba(159,103,255,0.8) 60%, transparent 100%)",
+              }} />
 
-              {/* Header */}
-              <div style={{ padding: "18px 24px", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", gap: "10px", background: "rgba(0,0,0,0.15)" }}>
-                <div style={{ display: "flex", gap: "7px" }}>
-                  <div style={{ width: 13, height: 13, borderRadius: "50%", background: "#ff5f57" }} />
-                  <div style={{ width: 13, height: 13, borderRadius: "50%", background: "#febc2e" }} />
-                  <div style={{ width: 13, height: 13, borderRadius: "50%", background: "#28c840" }} />
+              {/* Window chrome / title bar */}
+              <div style={{
+                padding: "20px 28px 16px",
+                borderBottom: "1px solid rgba(255,255,255,0.07)",
+                display: "flex", alignItems: "center", gap: "12px",
+                background: "rgba(255,255,255,0.02)",
+              }}>
+                {/* Traffic lights */}
+                <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#ff5f57", boxShadow: "0 0 6px rgba(255,95,87,0.4)" }} />
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#febc2e", boxShadow: "0 0 6px rgba(254,188,46,0.4)" }} />
+                  <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 6px rgba(40,200,64,0.4)" }} />
                 </div>
-                <span style={{ fontSize: "12px", color: "var(--text3)", letterSpacing: "0.08em", marginLeft: "auto", fontFamily: "var(--font-dm)", fontWeight: 500 }}>developer.ts</span>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#28c840", boxShadow: "0 0 8px #28c840" }} />
+
+                {/* File tab */}
+                <div style={{
+                  marginLeft: "12px", background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px",
+                  padding: "5px 14px", display: "flex", alignItems: "center", gap: "7px",
+                }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#a78bfa" }} />
+                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-dm)", fontWeight: 400, letterSpacing: "0.02em" }}>
+                    developer.ts
+                  </span>
+                </div>
+
+                {/* Status */}
+                <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "7px" }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 10px rgba(40,200,64,0.7)" }} />
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-dm)", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
+                    CURRENT FOCUS
+                  </span>
+                </div>
               </div>
 
-              {/* Code body */}
-              <div style={{ padding: "32px 28px", fontFamily: "'Courier New', monospace", fontSize: "14.5px", lineHeight: 2.0, letterSpacing: "0.01em" }}>
-                <span style={{ color: "var(--text3)" }}>{"// MERN Stack Developer"}</span><br />
-                <span style={{ color: "#e879f9" }}>const</span>{" "}
-                <span style={{ color: "#c4b5fd" }}>developer</span>{" "}
-                <span style={{ color: "var(--text3)" }}>=</span>{" "}
-                <span style={{ color: "var(--text2)" }}>{"{"}</span><br />
-                &nbsp;&nbsp;<span style={{ color: "#86efac" }}>name</span><span style={{ color: "var(--text3)" }}>:</span>{" "}
-                <span style={{ color: "#fbbf24" }}>&#39;Ilyass&#39;</span><span style={{ color: "var(--text3)" }}>,</span><br />
-                &nbsp;&nbsp;<span style={{ color: "#86efac" }}>role</span><span style={{ color: "var(--text3)" }}>:</span>{" "}
-                <span style={{ color: "#fbbf24" }}>&#39;MERN Stack Dev&#39;</span><span style={{ color: "var(--text3)" }}>,</span><br />
-                &nbsp;&nbsp;<span style={{ color: "#86efac" }}>stack</span><span style={{ color: "var(--text3)" }}>: [</span><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: "#fbbf24" }}>&#39;TypeScript&#39;</span><span style={{ color: "var(--text3)" }}>,</span><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: "#fbbf24" }}>&#39;React&#39;</span><span style={{ color: "var(--text3)" }}>,</span><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: "#fbbf24" }}>&#39;Tailwind CSS&#39;</span><span style={{ color: "var(--text3)" }}>,</span><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: "#a78bfa" }}>&#39;Python&#39;</span>{" "}<span style={{ color: "var(--text3)" }}>{"// coming soon"}</span><br />
-                &nbsp;&nbsp;<span style={{ color: "var(--text3)" }}>],</span><br />
-                &nbsp;&nbsp;<span style={{ color: "#86efac" }}>style</span><span style={{ color: "var(--text3)" }}>:</span>{" "}
-                <span style={{ color: "#fbbf24" }}>&#39;minimal premium&#39;</span><span style={{ color: "var(--text3)" }}>,</span><br />
-                &nbsp;&nbsp;<span style={{ color: "#86efac" }}>mode</span><span style={{ color: "var(--text3)" }}>: [</span>
-                <span style={{ color: "#fbbf24" }}>&#39;dark&#39;</span><span style={{ color: "var(--text3)" }}>,</span>{" "}
-                <span style={{ color: "#fbbf24" }}>&#39;light&#39;</span><span style={{ color: "var(--text3)" }}>]</span><br />
-                <span style={{ color: "var(--text2)" }}>{"}"}</span><span style={{ color: "var(--text3)" }}>;</span>
+              {/* Line numbers + Code */}
+              <div style={{ display: "flex", padding: "0" }}>
+                {/* Line numbers */}
+                <div style={{
+                  padding: "36px 0 36px 24px",
+                  color: "rgba(255,255,255,0.15)",
+                  fontFamily: "'Courier New', monospace",
+                  fontSize: "14px",
+                  lineHeight: "2.1",
+                  textAlign: "right" as const,
+                  userSelect: "none" as const,
+                  flexShrink: 0,
+                  minWidth: "44px",
+                }}>
+                  {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map(n => (
+                    <div key={n}>{n}</div>
+                  ))}
+                </div>
+
+                {/* Divider */}
+                <div style={{ width: "1px", background: "rgba(255,255,255,0.06)", margin: "24px 0" }} />
+
+                {/* Code content */}
+                <div style={{
+                  padding: "36px 36px 36px 28px",
+                  fontFamily: "'Courier New', 'Fira Code', monospace",
+                  fontSize: "14.5px",
+                  lineHeight: "2.1",
+                  letterSpacing: "0.01em",
+                  flex: 1,
+                  overflowX: "auto" as const,
+                }}>
+                  <div><span style={{ color: "rgba(255,255,255,0.25)" }}>{"// MERN Stack Developer"}</span></div>
+                  <div>
+                    <span style={{ color: "#e879f9" }}>const</span>
+                    {" "}<span style={{ color: "#c4b5fd" }}>developer</span>
+                    {" "}<span style={{ color: "rgba(255,255,255,0.4)" }}>=</span>
+                    {" "}<span style={{ color: "rgba(255,255,255,0.6)" }}>{"{"}</span>
+                  </div>
+                  <div>
+                    {"  "}<span style={{ color: "#86efac" }}>name</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>:</span>
+                    {" "}<span style={{ color: "#fbbf24" }}>&#39;Ilyass&#39;</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>,</span>
+                  </div>
+                  <div>
+                    {"  "}<span style={{ color: "#86efac" }}>role</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>:</span>
+                    {" "}<span style={{ color: "#fbbf24" }}>&#39;MERN Stack Developer&#39;</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>,</span>
+                  </div>
+                  <div>
+                    {"  "}<span style={{ color: "#86efac" }}>stack</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>: [</span>
+                  </div>
+                  <div>{"    "}<span style={{ color: "#fbbf24" }}>&#39;TypeScript&#39;</span><span style={{ color: "rgba(255,255,255,0.3)" }}>,</span></div>
+                  <div>{"    "}<span style={{ color: "#fbbf24" }}>&#39;React&#39;</span><span style={{ color: "rgba(255,255,255,0.3)" }}>,</span></div>
+                  <div>{"    "}<span style={{ color: "#fbbf24" }}>&#39;Tailwind CSS&#39;</span><span style={{ color: "rgba(255,255,255,0.3)" }}>,</span></div>
+                  <div>
+                    {"    "}<span style={{ color: "#a78bfa" }}>&#39;Python&#39;</span>
+                    {" "}<span style={{ color: "rgba(255,255,255,0.22)" }}>{"// coming soon"}</span>
+                  </div>
+                  <div>{"  "}<span style={{ color: "rgba(255,255,255,0.3)" }}>],</span></div>
+                  <div>
+                    {"  "}<span style={{ color: "#86efac" }}>style</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>:</span>
+                    {" "}<span style={{ color: "#fbbf24" }}>&#39;minimal premium&#39;</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>,</span>
+                  </div>
+                  <div>
+                    {"  "}<span style={{ color: "#86efac" }}>mode</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>: [</span>
+                    <span style={{ color: "#fbbf24" }}>&#39;dark&#39;</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>, </span>
+                    <span style={{ color: "#fbbf24" }}>&#39;light&#39;</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>]</span>
+                  </div>
+                  <div>
+                    <span style={{ color: "rgba(255,255,255,0.6)" }}>{"}"}</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)" }}>;</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom status bar */}
+              <div style={{
+                borderTop: "1px solid rgba(255,255,255,0.06)",
+                padding: "12px 28px",
+                display: "flex", alignItems: "center", gap: "20px",
+                background: "rgba(255,255,255,0.02)",
+              }}>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-dm)", letterSpacing: "0.05em" }}>TypeScript</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.12)", fontFamily: "var(--font-dm)" }}>UTF-8</span>
+                <span style={{ marginLeft: "auto", fontSize: "11px", color: "rgba(124,58,237,0.7)", fontFamily: "var(--font-dm)", fontWeight: 500 }}>● MERN Stack</span>
               </div>
             </div>
-
-            {/* Photo slot — clean, no placeholder text */}
-            <div id="hero-photo" style={{
-              background: "var(--bg3)", border: "1px solid var(--border)",
-              borderRadius: "20px", height: "200px", overflow: "hidden", position: "relative",
-            }} />
           </motion.div>
         </div>
       </div>
