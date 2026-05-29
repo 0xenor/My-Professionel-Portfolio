@@ -87,9 +87,9 @@ export default function HeroSection() {
           {/* RIGHT: Code Card */}
           <motion.div
             className="hero-code-wrapper"
-            initial={{ opacity: 0, x: 44 }} animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" }}
-            style={{ width: "100%", minWidth: 0, display: "flex", justifyContent: "center" }}
+            style={{ width: "100%", minWidth: 0, display: "flex", justifyContent: "center", alignItems: "center" }}
           >
             <div className="code-card-outer" style={{
               width: "100%",
