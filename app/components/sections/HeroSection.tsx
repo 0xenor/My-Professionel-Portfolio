@@ -28,7 +28,7 @@ export default function HeroSection() {
           }}
         >
           {/* LEFT: Hero text */}
-          <div>
+          <div className="hero-text-col">
             <motion.div custom={0} variants={fadeItem} initial="hidden" animate="visible">
               <div className="hero-badge" style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
@@ -152,36 +152,20 @@ export default function HeroSection() {
                   <span style={{ color: "#e879f9" }}>const</span>
                   {" developer = {"}
                 </div>
-                <div>
-                  {"  name: "}
-                  <span style={{ color: "#fbbf24" }}>{"'Ilyass'"}</span>
-                  {","}
-                </div>
-                <div>
-                  {"  role: "}
-                  <span style={{ color: "#fbbf24" }}>{"'MERN Stack Developer'"}</span>
-                  {","}
-                </div>
+                <div>{"  name: "}<span style={{ color: "#fbbf24" }}>{"'Ilyass'"}</span>{","}</div>
+                <div>{"  role: "}<span style={{ color: "#fbbf24" }}>{"'MERN Stack Developer'"}</span>{","}</div>
                 <div>
                   {"  stack: ["}
-                  <span style={{ color: "#fbbf24" }}>{"'TypeScript'"}</span>
-                  {","}
-                  <span style={{ color: "#fbbf24" }}>{"'React'"}</span>
-                  {","}
-                  <span style={{ color: "#fbbf24" }}>{"'Next JS'"}</span>
-                  {","}
+                  <span style={{ color: "#fbbf24" }}>{"'TypeScript'"}</span>{","}
+                  <span style={{ color: "#fbbf24" }}>{"'React'"}</span>{","}
+                  <span style={{ color: "#fbbf24" }}>{"'Next JS'"}</span>{","}
                   <span style={{ color: "#fbbf24" }}>{"'Tailwind CSS'"}</span>
                   {"] ,"}
                 </div>
-                <div>
-                  {"  style: "}
-                  <span style={{ color: "#fbbf24" }}>{"'minimal premium, creative'"}</span>
-                  {","}
-                </div>
+                <div>{"  style: "}<span style={{ color: "#fbbf24" }}>{"'minimal premium, creative'"}</span>{","}</div>
                 <div>
                   {"  mode: ["}
-                  <span style={{ color: "#fbbf24" }}>{"'Dark'"}</span>
-                  {","}
+                  <span style={{ color: "#fbbf24" }}>{"'Dark'"}</span>{","}
                   <span style={{ color: "#fbbf24" }}>{"'Light'"}</span>
                   {"]"}
                 </div>
