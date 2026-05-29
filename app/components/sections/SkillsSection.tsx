@@ -121,10 +121,6 @@ export default function SkillsSection() {
           />
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </section>
   );
 }

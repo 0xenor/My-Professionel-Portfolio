@@ -52,3 +52,109 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+
+/* ============================================================
+   GLOBAL RESPONSIVE — mobile only, desktop untouched
+   ============================================================ */
+
+/* ── Navbar: shrink pill on small screens ── */
+@media (max-width: 640px) {
+  nav {
+    padding: 8px 14px !important;
+    top: 12px !important;
+    width: calc(100% - 24px) !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Section containers: tighter padding on mobile ── */
+@media (max-width: 768px) {
+  section > div[style*="maxWidth"],
+  section > div[style*="max-width"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ── Hero ── */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding-top: 100px !important;
+  }
+}
+
+/* ── Code card: prevent overflow, allow scroll inside ── */
+.code-card-outer {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.code-body {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  min-width: 0;
+}
+/* Thin purple scrollbar on code area */
+.code-body::-webkit-scrollbar { height: 3px; }
+.code-body::-webkit-scrollbar-track { background: transparent; }
+.code-body::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.45); border-radius: 10px; }
+
+@media (max-width: 600px) {
+  .code-body {
+    font-size: 12.5px !important;
+    padding: 24px 16px 24px 14px !important;
+    line-height: 2.0 !important;
+  }
+  .code-titlebar {
+    padding: 14px 16px 12px !important;
+  }
+}
+@media (max-width: 480px) {
+  .code-linenos { display: none !important; }
+  .code-status  { display: none !important; }
+}
+
+/* ── About: stack info cards vertically on small screens ── */
+@media (max-width: 640px) {
+  .about-info-row {
+    flex-direction: column !important;
+  }
+  .about-main-card {
+    padding: 28px 24px !important;
+  }
+}
+
+/* ── Skills: single column on mobile ── */
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Journey: hide timeline decoration on mobile ── */
+@media (max-width: 860px) {
+  .tl-item         { grid-template-columns: 1fr !important; }
+  .tl-dot-col      { display: none !important; }
+  .tl-line         { display: none !important; }
+}
+
+/* ── Projects: single column on mobile ── */
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Contact box: tighter padding on mobile ── */
+@media (max-width: 640px) {
+  .contact-box {
+    padding: 48px 28px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* ── Buttons: allow wrapping, never overflow ── */
+@media (max-width: 480px) {
+  .btn-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}

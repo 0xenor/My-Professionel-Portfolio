@@ -28,6 +28,7 @@ export default function ContactSection() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
           <FadeUp>
             <div
+              className="contact-box"
               style={{
                 background: "var(--bg2)",
                 border: "1px solid var(--border)",

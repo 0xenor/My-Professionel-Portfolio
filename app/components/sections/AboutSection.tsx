@@ -57,6 +57,7 @@ export default function AboutSection() {
         {/* Large description card on top */}
         <FadeUp delay={0.05}>
           <div
+            className="about-main-card"
             style={{
               background: "var(--bg2)",
               border: "1px solid var(--border)",
@@ -125,7 +126,7 @@ export default function AboutSection() {
 
         {/* Three equal cards below */}
         <FadeUp delay={0.1}>
-          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+          <div className="about-info-row" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <InfoCard
               label={t.about.location}
               title="Morocco 🇲🇦"

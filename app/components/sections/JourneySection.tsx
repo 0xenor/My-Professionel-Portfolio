@@ -174,19 +174,6 @@ export default function JourneySection() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 860px) {
-          .tl-item {
-            grid-template-columns: 1fr !important;
-          }
-          .tl-item > div:nth-child(2) {
-            display: none !important;
-          }
-          .tl-line {
-            display: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

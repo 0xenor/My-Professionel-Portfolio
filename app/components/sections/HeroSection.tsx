@@ -14,7 +14,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center" }}>
+    <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center", overflowX: "hidden" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 48px", width: "100%" }}>
         <div
           className="hero-grid"
@@ -44,7 +44,7 @@ export default function HeroSection() {
             <motion.h1
               custom={1} variants={fadeItem} initial="hidden" animate="visible"
               style={{
-                fontFamily: "var(--font-syne)", fontSize: "clamp(54px,7.5vw,86px)",
+                fontFamily: "var(--font-syne)", fontSize: "clamp(44px,7.5vw,86px)",
                 fontWeight: 800, lineHeight: 0.98, letterSpacing: "-0.04em", marginBottom: "28px",
               }}
             >
@@ -54,7 +54,7 @@ export default function HeroSection() {
 
             <motion.p
               custom={2} variants={fadeItem} initial="hidden" animate="visible"
-              style={{ fontSize: "17px", color: "var(--text2)", lineHeight: 1.8, maxWidth: "400px", marginBottom: "44px", fontFamily: "var(--font-dm)", fontWeight: 300 }}
+              style={{ fontSize: "16px", color: "var(--text2)", lineHeight: 1.8, maxWidth: "400px", marginBottom: "44px", fontFamily: "var(--font-dm)", fontWeight: 300 }}
             >
               {t.hero.sub}
             </motion.p>
@@ -65,7 +65,7 @@ export default function HeroSection() {
             >
               <a href="#projects" style={{
                 background: "var(--text)", color: "var(--bg)", borderRadius: "50px",
-                padding: "15px 30px", fontSize: "15px", fontWeight: 600,
+                padding: "14px 26px", fontSize: "15px", fontWeight: 600,
                 cursor: "pointer", textDecoration: "none", fontFamily: "var(--font-dm)", display: "inline-flex",
                 transition: "opacity 0.2s, transform 0.2s",
               }}
@@ -74,7 +74,7 @@ export default function HeroSection() {
               >{t.hero.btn1}</a>
               <a href="#journey" style={{
                 background: "transparent", color: "var(--text)", border: "1px solid var(--border2)",
-                borderRadius: "50px", padding: "15px 30px", fontSize: "15px", fontWeight: 500,
+                borderRadius: "50px", padding: "14px 26px", fontSize: "15px", fontWeight: 500,
                 cursor: "pointer", textDecoration: "none", fontFamily: "var(--font-dm)", display: "inline-flex",
                 transition: "background 0.2s, border-color 0.2s",
               }}
@@ -84,19 +84,21 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Premium Code Card only */}
+          {/* RIGHT: Premium Code Card */}
           <motion.div
             initial={{ opacity: 0, x: 44 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" }}
+            style={{ width: "100%", minWidth: 0 }}
           >
-            {/* ── PREMIUM CODE CARD ── */}
-            <div style={{
+            <div className="code-card-outer" style={{
               background: "#0f0f0f",
               border: "1px solid rgba(255,255,255,0.11)",
               borderRadius: "24px",
               overflow: "hidden",
               boxShadow: "0 0 0 1px rgba(124,58,237,0.08), 0 0 80px rgba(124,58,237,0.22), 0 32px 80px rgba(0,0,0,0.55)",
               position: "relative",
+              width: "100%",
+              minWidth: 0,
             }}>
               {/* Top purple accent line */}
               <div style={{
@@ -104,12 +106,14 @@ export default function HeroSection() {
                 background: "linear-gradient(90deg, transparent 0%, rgba(124,58,237,0.8) 40%, rgba(159,103,255,0.8) 60%, transparent 100%)",
               }} />
 
-              {/* Window chrome / title bar */}
-              <div style={{
+              {/* Title bar */}
+              <div className="code-titlebar" style={{
                 padding: "20px 28px 16px",
                 borderBottom: "1px solid rgba(255,255,255,0.07)",
                 display: "flex", alignItems: "center", gap: "12px",
                 background: "rgba(255,255,255,0.02)",
+                flexWrap: "nowrap" as const,
+                minWidth: 0,
               }}>
                 {/* Traffic lights */}
                 <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
@@ -117,32 +121,30 @@ export default function HeroSection() {
                   <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#febc2e", boxShadow: "0 0 6px rgba(254,188,46,0.4)" }} />
                   <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 6px rgba(40,200,64,0.4)" }} />
                 </div>
-
                 {/* File tab */}
                 <div style={{
                   marginLeft: "12px", background: "rgba(255,255,255,0.06)",
                   border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px",
-                  padding: "5px 14px", display: "flex", alignItems: "center", gap: "7px",
+                  padding: "5px 14px", display: "flex", alignItems: "center", gap: "7px", flexShrink: 0,
                 }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#a78bfa" }} />
                   <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-dm)", fontWeight: 400, letterSpacing: "0.02em" }}>
                     developer.ts
                   </span>
                 </div>
-
-                {/* Status */}
-                <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "7px" }}>
+                {/* Status — hidden on very small screens via CSS */}
+                <div className="code-status" style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "7px", flexShrink: 0 }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#28c840", boxShadow: "0 0 10px rgba(40,200,64,0.7)" }} />
-                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-dm)", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-dm)", letterSpacing: "0.08em", textTransform: "uppercase" as const, whiteSpace: "nowrap" as const }}>
                     CURRENT FOCUS
                   </span>
                 </div>
               </div>
 
-              {/* Line numbers + Code */}
-              <div style={{ display: "flex", padding: "0" }}>
-                {/* Line numbers */}
-                <div style={{
+              {/* Line numbers + Code body */}
+              <div style={{ display: "flex", width: "100%", minWidth: 0 }}>
+                {/* Line numbers — hidden on mobile */}
+                <div className="code-linenos" style={{
                   padding: "36px 0 36px 24px",
                   color: "rgba(255,255,255,0.15)",
                   fontFamily: "'Courier New', monospace",
@@ -159,9 +161,9 @@ export default function HeroSection() {
                 </div>
 
                 {/* Divider */}
-                <div style={{ width: "1px", background: "rgba(255,255,255,0.06)", margin: "24px 0" }} />
+                <div className="code-linenos" style={{ width: "1px", background: "rgba(255,255,255,0.06)", margin: "24px 0", flexShrink: 0 }} />
 
-                {/* Code content */}
+                {/* Scrollable code area */}
                 <div style={{
                   padding: "36px 36px 36px 28px",
                   fontFamily: "'Courier New', 'Fira Code', monospace",
@@ -169,8 +171,10 @@ export default function HeroSection() {
                   lineHeight: "2.1",
                   letterSpacing: "0.01em",
                   flex: 1,
+                  minWidth: 0,
                   overflowX: "auto" as const,
-                }}>
+                  WebkitOverflowScrolling: "touch" as const,
+                }} className="code-body">
                   <div><span style={{ color: "rgba(255,255,255,0.25)" }}>{"// MERN Stack Developer"}</span></div>
                   <div>
                     <span style={{ color: "#e879f9" }}>const</span>
@@ -232,18 +236,13 @@ export default function HeroSection() {
               }}>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-dm)", letterSpacing: "0.05em" }}>TypeScript</span>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.12)", fontFamily: "var(--font-dm)" }}>UTF-8</span>
-                <span style={{ marginLeft: "auto", fontSize: "11px", color: "rgba(124,58,237,0.7)", fontFamily: "var(--font-dm)", fontWeight: 500 }}>● MERN Stack</span>
+                <span style={{ marginLeft: "auto", fontSize: "11px", color: "rgba(124,58,237,0.7)", fontFamily: "var(--font-dm)", fontWeight: 500, whiteSpace: "nowrap" as const }}>● MERN Stack</span>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 900px) {
-          .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-        }
-      `}</style>
     </section>
   );
 }
