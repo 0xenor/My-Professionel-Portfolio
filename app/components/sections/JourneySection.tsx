@@ -16,88 +16,77 @@ interface TimelineCardProps {
 const TimelineCard = ({ year, title, sub, text, icon, side, delay = 0 }: TimelineCardProps) => {
   const isLeft = side === "left";
 
-  const card = (
-    <div
-      style={{
-        background: "var(--bg2)",
-        border: "1px solid var(--border)",
-        borderRadius: "20px",
-        padding: "30px 34px",
-        transition: "border-color 0.25s, background 0.25s, transform 0.25s",
-        cursor: "default",
-      }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--border2)";
-        (e.currentTarget as HTMLElement).style.background = "var(--bg3)";
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-        (e.currentTarget as HTMLElement).style.background = "var(--bg2)";
-        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-      }}
-    >
-      <div style={{ fontSize: "12px", color: "var(--text3)", fontWeight: 500, letterSpacing: "0.06em", marginBottom: "10px", fontFamily: "var(--font-dm)" }}>
-        {year}
-      </div>
-      <h3 style={{ fontFamily: "var(--font-syne)", fontSize: "20px", fontWeight: 700, marginBottom: "5px", color: "var(--text)" }}>
-        {title}
-      </h3>
-      <div style={{ fontSize: "13px", color: "var(--accent2)", fontWeight: 500, marginBottom: "14px", fontFamily: "var(--font-dm)" }}>
-        {sub}
-      </div>
-      <p style={{ fontSize: "14px", color: "var(--text2)", lineHeight: 1.75, fontFamily: "var(--font-dm)", fontWeight: 300 }}>
-        {text}
-      </p>
-    </div>
-  );
-
-  const dot = (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", zIndex: 2 }}>
-      <motion.div
-        whileHover={{ scale: 1.15 }}
-        style={{
-          width: 48, height: 48,
-          background: "var(--bg2)",
-          border: "1px solid var(--border2)",
-          borderRadius: "50%",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: "19px",
-          cursor: "default",
-          flexShrink: 0,
-        }}
-      >
-        {icon}
-      </motion.div>
-    </div>
-  );
-
   return (
     <FadeUp delay={delay}>
-      {/* Desktop: 3-col grid */}
       <div
-        className="tl-item"
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 72px 1fr",
+          gridTemplateColumns: "1fr 60px 1fr",
           alignItems: "center",
           gap: 0,
         }}
+        className="tl-item"
       >
-        {/* Col 1 */}
-        <div style={{ gridColumn: 1, gridRow: 1 }}>
-          {isLeft ? card : null}
+        {/* Left slot */}
+        <div style={{ gridColumn: isLeft ? 1 : 3, gridRow: 1 }}>
+          <div
+            style={{
+              background: "var(--bg2)",
+              border: "1px solid var(--border)",
+              borderRadius: "20px",
+              padding: "30px 34px",
+              transition: "border-color 0.25s, background 0.25s, transform 0.25s",
+              cursor: "default",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--border2)";
+              (e.currentTarget as HTMLElement).style.background = "var(--bg3)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+              (e.currentTarget as HTMLElement).style.background = "var(--bg2)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+            }}
+          >
+            <div style={{ fontSize: "12px", color: "var(--text3)", fontWeight: 500, letterSpacing: "0.06em", marginBottom: "10px", fontFamily: "var(--font-dm)" }}>
+              {year}
+            </div>
+            <h3 style={{ fontFamily: "var(--font-syne)", fontSize: "20px", fontWeight: 700, marginBottom: "4px", color: "var(--text)" }}>
+              {title}
+            </h3>
+            <div style={{ fontSize: "13px", color: "var(--accent2)", fontWeight: 500, marginBottom: "12px", fontFamily: "var(--font-dm)" }}>
+              {sub}
+            </div>
+            <p style={{ fontSize: "14px", color: "var(--text2)", lineHeight: 1.75, fontFamily: "var(--font-dm)", fontWeight: 300 }}>
+              {text}
+            </p>
+          </div>
         </div>
 
-        {/* Col 2 — dot always in center */}
-        <div style={{ gridColumn: 2, gridRow: 1 }}>
-          {dot}
+        {/* Center dot */}
+        <div style={{ gridColumn: 2, gridRow: 1, display: "flex", justifyContent: "center", alignItems: "center", position: "relative", zIndex: 2 }} className="tl-dot-col">
+          <motion.div
+            whileHover={{ scale: 1.15 }}
+            style={{
+              width: 46, height: 46,
+              background: "var(--bg2)",
+              border: "1px solid var(--border2)",
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "18px",
+              transition: "background 0.2s, border-color 0.2s",
+              cursor: "default",
+            }}
+          >
+            {icon}
+          </motion.div>
         </div>
 
-        {/* Col 3 */}
-        <div style={{ gridColumn: 3, gridRow: 1 }}>
-          {!isLeft ? card : null}
-        </div>
+        {/* Empty slot */}
+        <div style={{ gridColumn: isLeft ? 3 : 1, gridRow: 1 }} />
       </div>
     </FadeUp>
   );
@@ -106,7 +95,8 @@ const TimelineCard = ({ year, title, sub, text, icon, side, delay = 0 }: Timelin
 export default function JourneySection() {
   const { t } = useLang();
 
-  // Newest at top, oldest at bottom — visual "rising from past" feel
+  // Timeline items — displayed top to bottom on screen = newest first
+  // BUT the visual meaning is: scroll DOWN = go back in time (oldest at bottom)
   const items = [
     {
       year: "2025 – Present",
@@ -148,27 +138,23 @@ export default function JourneySection() {
           </div>
         </FadeUp>
 
-        {/* Timeline wrapper — relative so the absolute line can span full height */}
-        <div style={{ position: "relative", maxWidth: 920, margin: "0 auto" }}>
-
-          {/* ── VERTICAL CENTER LINE ── */}
+        <div style={{ position: "relative", maxWidth: 900, margin: "0 auto" }}>
+          {/* Vertical line */}
           <div
             className="tl-line"
             style={{
               position: "absolute",
-              /* offset = half of outer container padding + half of dot column (72px) */
-              left: "calc(50% - 0.5px)",
-              top: 0,
-              bottom: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              top: 0, bottom: 0,
               width: "1px",
-              background: "linear-gradient(to bottom, transparent 0%, var(--border2) 8%, var(--border2) 92%, transparent 100%)",
-              zIndex: 0,
+              background: "linear-gradient(to bottom, transparent, var(--border2) 5%, var(--border2) 95%, transparent)",
             }}
           />
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "80px", position: "relative", zIndex: 1 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "72px", position: "relative" }}>
             {items.map((item, i) => (
-              <TimelineCard key={i} {...item} delay={i * 0.06} />
+              <TimelineCard key={i} {...item} delay={i * 0.05} />
             ))}
           </div>
         </div>
@@ -176,15 +162,9 @@ export default function JourneySection() {
 
       <style>{`
         @media (max-width: 860px) {
-          .tl-item {
-            grid-template-columns: 1fr !important;
-          }
-          .tl-item > div:nth-child(2) {
-            display: none !important;
-          }
-          .tl-line {
-            display: none !important;
-          }
+          .tl-item { grid-template-columns: 1fr !important; }
+          .tl-dot-col { display: none !important; }
+          .tl-line { display: none !important; }
         }
       `}</style>
     </section>
