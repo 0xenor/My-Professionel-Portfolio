@@ -136,11 +136,10 @@ export default function JourneySection() {
 
   return (
     <section id="journey" style={{ padding: "120px 0" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+      <div className="section-wrap" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
         <FadeUp>
           <div style={{ textAlign: "center", marginBottom: "80px" }}>
             <div style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text3)", marginBottom: "16px", fontFamily: "var(--font-dm)", fontWeight: 500 }}>
-              {t.journey.label}
             </div>
             <h2 style={{ fontFamily: "var(--font-syne)", fontSize: "clamp(36px,5vw,60px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
               {t.journey.title}

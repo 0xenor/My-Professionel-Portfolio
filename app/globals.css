@@ -48,113 +48,199 @@ body {
 
 ::selection { background: var(--accent); color: #fff; }
 * { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
 
-/* ============================================================
-   GLOBAL RESPONSIVE — mobile only, desktop untouched
-   ============================================================ */
-
-/* ── Navbar: shrink pill on small screens ── */
-@media (max-width: 640px) {
-  nav {
-    padding: 8px 14px !important;
-    top: 12px !important;
-    width: calc(100% - 24px) !important;
-    max-width: 100% !important;
-  }
+/* ================================================================
+   SECTION WRAPPERS — desktop default, mobile override
+   ================================================================ */
+.section-wrap {
+  padding-left: 40px;
+  padding-right: 40px;
 }
-
-/* ── Section containers: tighter padding on mobile ── */
 @media (max-width: 768px) {
-  section > div[style*="maxWidth"],
-  section > div[style*="max-width"] {
+  .section-wrap {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 }
-
-/* ── Hero ── */
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
-    padding-top: 100px !important;
+@media (max-width: 480px) {
+  .section-wrap {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
-/* ── Code card: prevent overflow, allow scroll inside ── */
+/* ================================================================
+   NAVBAR — mobile only
+   ================================================================ */
+
+/* Pill shrinks and centers on mobile */
+@media (max-width: 767px) {
+  .nav-pill {
+    width: calc(100vw - 32px) !important;
+    max-width: 460px !important;
+    padding: 9px 14px !important;
+    top: 10px !important;
+    /* override justify so controls row centers */
+    justify-content: center !important;
+  }
+
+  /* Controls row (lang + theme + hamburger) — centered */
+  .nav-controls {
+    justify-content: center !important;
+    flex: 1;
+  }
+}
+
+/* ================================================================
+   HERO — mobile only
+   ================================================================ */
+
+/* Stack to single column */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-top: 96px !important;
+    padding-bottom: 56px !important;
+  }
+}
+
+/* Hero title responsive scaling */
+@media (max-width: 600px) {
+  .hero-grid h1 {
+    font-size: clamp(36px, 10.5vw, 58px) !important;
+    line-height: 1.0 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 20px !important;
+  }
+  .hero-grid p {
+    font-size: 15px !important;
+    max-width: 100% !important;
+    margin-bottom: 28px !important;
+  }
+  .hero-badge {
+    margin-bottom: 22px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* ================================================================
+   CODE CARD — desktop base (always), mobile overrides inside @media
+   ================================================================ */
+
+/* Always: card fills its grid cell, never overflows */
 .code-card-outer {
   width: 100%;
-  min-width: 0;
   max-width: 100%;
+  min-width: 0;
 }
+
+/* Code area: scrollable inside, never pushes card wider */
 .code-body {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   min-width: 0;
+  /* thin purple scrollbar */
 }
-/* Thin purple scrollbar on code area */
-.code-body::-webkit-scrollbar { height: 3px; }
-.code-body::-webkit-scrollbar-track { background: transparent; }
-.code-body::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.45); border-radius: 10px; }
+.code-body::-webkit-scrollbar         { height: 3px; }
+.code-body::-webkit-scrollbar-track   { background: transparent; }
+.code-body::-webkit-scrollbar-thumb   { background: rgba(124,58,237,0.45); border-radius: 10px; }
+
+/* Mobile: card centered, better proportions, breathing room */
+@media (max-width: 900px) {
+  .code-card-outer {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* motion.div wrapper that holds the card */
+  .hero-code-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* More internal padding on tablet */
+  .code-titlebar {
+    padding: 16px 20px 14px !important;
+  }
+  .code-body {
+    font-size: 13.5px !important;
+    padding: 28px 20px 28px 16px !important;
+    line-height: 2.05 !important;
+  }
+}
 
 @media (max-width: 600px) {
+  /* Phones: tighter but still readable */
+  .code-titlebar {
+    padding: 13px 16px 11px !important;
+  }
   .code-body {
     font-size: 12.5px !important;
-    padding: 24px 16px 24px 14px !important;
+    padding: 22px 16px 22px 12px !important;
     line-height: 2.0 !important;
   }
-  .code-titlebar {
-    padding: 14px 16px 12px !important;
-  }
 }
+
 @media (max-width: 480px) {
+  /* Very small phones: hide line numbers & status to free width for code */
   .code-linenos { display: none !important; }
   .code-status  { display: none !important; }
+  .code-body {
+    font-size: 12px !important;
+    padding: 18px 14px !important;
+    line-height: 1.95 !important;
+  }
 }
 
-/* ── About: stack info cards vertically on small screens ── */
+/* ================================================================
+   ABOUT — mobile only
+   ================================================================ */
 @media (max-width: 640px) {
-  .about-info-row {
-    flex-direction: column !important;
-  }
-  .about-main-card {
-    padding: 28px 24px !important;
-  }
+  .about-main-card { padding: 28px 22px !important; }
+  .about-info-row  { flex-direction: column !important; }
 }
 
-/* ── Skills: single column on mobile ── */
+/* ================================================================
+   SKILLS — mobile only
+   ================================================================ */
 @media (max-width: 900px) {
   .skills-grid { grid-template-columns: 1fr !important; }
 }
 
-/* ── Journey: hide timeline decoration on mobile ── */
+/* ================================================================
+   JOURNEY — mobile only
+   ================================================================ */
 @media (max-width: 860px) {
-  .tl-item         { grid-template-columns: 1fr !important; }
-  .tl-dot-col      { display: none !important; }
-  .tl-line         { display: none !important; }
+  .tl-item    { grid-template-columns: 1fr !important; }
+  .tl-dot-col { display: none !important; }
+  .tl-line    { display: none !important; }
 }
 
-/* ── Projects: single column on mobile ── */
+/* ================================================================
+   PROJECTS — mobile only
+   ================================================================ */
 @media (max-width: 900px) {
   .projects-grid { grid-template-columns: 1fr !important; }
 }
 
-/* ── Contact box: tighter padding on mobile ── */
-@media (max-width: 640px) {
-  .contact-box {
-    padding: 48px 28px !important;
-    border-radius: 20px !important;
-  }
+/* ================================================================
+   CONTACT — mobile only
+   ================================================================ */
+@media (max-width: 768px) {
+  .contact-box { padding: 56px 36px !important; }
 }
-
-/* ── Buttons: allow wrapping, never overflow ── */
 @media (max-width: 480px) {
-  .btn-row {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  .contact-box {
+    padding: 40px 22px !important;
+    border-radius: 20px !important;
   }
 }

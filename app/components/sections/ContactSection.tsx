@@ -25,7 +25,7 @@ export default function ContactSection() {
   return (
     <>
       <section id="contact" style={{ padding: "80px 0 120px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+        <div className="section-wrap" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
           <FadeUp>
             <div
               className="contact-box"

@@ -15,7 +15,7 @@ export default function HeroSection() {
 
   return (
     <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center", overflowX: "hidden" }}>
-      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 48px", width: "100%" }}>
+      <div className="section-wrap" style={{ maxWidth: 1240, margin: "0 auto", padding: "0 48px", width: "100%" }}>
         <div
           className="hero-grid"
           style={{
@@ -30,7 +30,7 @@ export default function HeroSection() {
           {/* LEFT: Hero text */}
           <div>
             <motion.div custom={0} variants={fadeItem} initial="hidden" animate="visible">
-              <div style={{
+              <div className="hero-badge" style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 border: "1px solid var(--border2)", borderRadius: "50px",
                 padding: "8px 20px", fontSize: "11px", letterSpacing: "0.14em",
@@ -86,6 +86,7 @@ export default function HeroSection() {
 
           {/* RIGHT: Premium Code Card */}
           <motion.div
+            className="hero-code-wrapper"
             initial={{ opacity: 0, x: 44 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" }}
             style={{ width: "100%", minWidth: 0 }}

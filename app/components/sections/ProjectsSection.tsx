@@ -69,7 +69,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" style={{ padding: "120px 0" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+      <div className="section-wrap" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }} className="projects-grid">
 
           {/* Left: intro */}
