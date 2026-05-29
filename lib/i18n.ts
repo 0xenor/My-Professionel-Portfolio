@@ -50,7 +50,7 @@ export const translations: Record<Lang, TranslationKeys> = {
       label: "About", title1: "A modern", title2: "developer.",
       badge: "MERN STACK · Photographer · Social Media Manager",
       text: "I am a student with a background in Economics and currently studying Applied Economics at university. Passionate about technology, development and real-world systems, I enjoy building digital experiences while exploring mechanics and truck driving culture. My interests combine JavaScript development, editing, automotive photography and discovering new skills. My long-term ambition is to become a Software Engineer and connect software with the world of mechanics and engineering.",
-      focus: "Focus", focusVal: "MERN Stack Dev", stack: "Stack", style: "Style", styleVal: "Modern & Clean",
+      focus: "Focus", focusVal: "MERN Stack", stack: "Stack", style: "Style", styleVal: "Modern & Clean",
       location: "Location", locationSub: "Based in Morocco, available for remote projects and digital missions.",
       languages: "Languages", langList: "Tamazight · Arabic · French · English · Deutsch", langSub: "Fluent communication across multiple cultural contexts.",
       driving: "Driving", drivingSub: "C + EC coming soon. Passionate about trucks and automotive culture.",
@@ -64,7 +64,7 @@ export const translations: Record<Lang, TranslationKeys> = {
     journey: {
       label: "Experience", title: "Journey",
       card1: { title: "Bac Science Economique & Learning", sub: "Academic Foundation", text: "Started discovering programming and technology while studying Economics. Quickly developed strong curiosity for coding and digital creation, laying the foundation for a technical path." },
-      card2: { title: "Bachelor Applied Economics", sub: "Université Ibn Zohr · Freelance", text: "Currently studying Applied Economics at Université Ibn Zohr while expanding practical experience through freelance management and landing page development. Focused on completing my academic path and developing strong digital and creative skills alongside university studies." },
+      card2: { title: "Bachelor Applied Economics · Freelance", sub: "Université Ibn Zohr", text: "Currently studying Applied Economics at Université Ibn Zohr while expanding practical experience through freelance management and landing page development. Focused on completing my academic path and developing strong digital and creative skills alongside university studies." },
       card3: { title: "Mechanic Garage Internship", sub: "Automotive & Mechanic", text: "Passionate about cars, engines and mechanics, gaining hands on experience and learning directly from the automotive world bridging the gap between digital and mechanical engineering." },
     },
     projects: {
